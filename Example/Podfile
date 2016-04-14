@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 
-target 'RCAnalytics_Tests', :exclusive => true do
+target 'RCAnalytics_Tests' do
   pod 'RCAnalytics', :path => '../'
 
   pod 'Quick', '~> 0.9'

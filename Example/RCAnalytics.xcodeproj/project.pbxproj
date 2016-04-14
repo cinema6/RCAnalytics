@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01405ADD11A3EA0D921CF4B3 /* Pods_RCAnalytics_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A64785A574C37756D0DE732 /* Pods_RCAnalytics_Tests.framework */; };
 		91141BE11CBEADE90075C971 /* URIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91141BE01CBEADE90075C971 /* URIRequest.swift */; };
 		916DD34D1CBC1CEC001EDFA5 /* PixelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916DD34C1CBC1CEC001EDFA5 /* PixelManager.swift */; };
 		91A084271CBC31AB008D68CB /* RCAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A084261CBC31AB008D68CB /* RCAnalytics.swift */; };
 		91A262CD1CBD48A300E4F531 /* URI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A262CC1CBD48A300E4F531 /* URI.swift */; };
+		A86C4777DCBF7C00F5ABAA4C /* Pods_RCAnalytics_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0470D46ECB8FC3C055692D9A /* Pods_RCAnalytics_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		17C7DDF546CBAAB07B6D5732 /* Pods-RCAnalytics_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCAnalytics_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RCAnalytics_Tests/Pods-RCAnalytics_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		2A64785A574C37756D0DE732 /* Pods_RCAnalytics_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RCAnalytics_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0470D46ECB8FC3C055692D9A /* Pods_RCAnalytics_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RCAnalytics_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04E874E5D2E3A004B59606B1 /* Pods-RCAnalytics_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCAnalytics_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RCAnalytics_Tests/Pods-RCAnalytics_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* RCAnalytics_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RCAnalytics_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67D5634E3CB2920BCC005C5C /* RCAnalytics.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RCAnalytics.podspec; path = ../RCAnalytics.podspec; sourceTree = "<group>"; };
-		6F3686298DACD2C419A60475 /* Pods-RCAnalytics_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCAnalytics_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RCAnalytics_Tests/Pods-RCAnalytics_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		91141BE01CBEADE90075C971 /* URIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URIRequest.swift; sourceTree = "<group>"; };
 		916DD34C1CBC1CEC001EDFA5 /* PixelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixelManager.swift; sourceTree = "<group>"; };
 		91A084261CBC31AB008D68CB /* RCAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCAnalytics.swift; sourceTree = "<group>"; };
 		91A262CC1CBD48A300E4F531 /* URI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URI.swift; sourceTree = "<group>"; };
 		A116799C5820BE0F89468368 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		A5EF8690C0CD92444AE1352B /* Pods-RCAnalytics_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCAnalytics_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RCAnalytics_Tests/Pods-RCAnalytics_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E78FB55EF31ED988BA846DAD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -34,7 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01405ADD11A3EA0D921CF4B3 /* Pods_RCAnalytics_Tests.framework in Frameworks */,
+				A86C4777DCBF7C00F5ABAA4C /* Pods_RCAnalytics_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,8 +47,8 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				C0912186AECCD8D41731AC05 /* Pods */,
-				F69057974566E68AA2212564 /* Frameworks */,
+				FD016B2BE74BAD8E707F5DAF /* Pods */,
+				C71206BFE22F2E27F4F66718 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,21 +90,21 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		C0912186AECCD8D41731AC05 /* Pods */ = {
+		C71206BFE22F2E27F4F66718 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6F3686298DACD2C419A60475 /* Pods-RCAnalytics_Tests.debug.xcconfig */,
-				17C7DDF546CBAAB07B6D5732 /* Pods-RCAnalytics_Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		F69057974566E68AA2212564 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2A64785A574C37756D0DE732 /* Pods_RCAnalytics_Tests.framework */,
+				0470D46ECB8FC3C055692D9A /* Pods_RCAnalytics_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD016B2BE74BAD8E707F5DAF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				04E874E5D2E3A004B59606B1 /* Pods-RCAnalytics_Tests.debug.xcconfig */,
+				A5EF8690C0CD92444AE1352B /* Pods-RCAnalytics_Tests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -114,12 +114,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RCAnalytics_Tests" */;
 			buildPhases = (
-				32DFEE96AAD0EA13C2009BE0 /* Check Pods Manifest.lock */,
+				2B5D1A6EBA1910527AAAF0CF /* 📦 Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				DFCE606E6A63B37C8C6C68E9 /* Embed Pods Frameworks */,
-				A4BE5DCF6C4D482F0714F436 /* Copy Pods Resources */,
+				0FB5BB16E057B2A7DF9C04C8 /* 📦 Embed Pods Frameworks */,
+				5C40EB6B7E54CCCC41661C14 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -175,14 +175,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		32DFEE96AAD0EA13C2009BE0 /* Check Pods Manifest.lock */ = {
+		0FB5BB16E057B2A7DF9C04C8 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RCAnalytics_Tests/Pods-RCAnalytics_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B5D1A6EBA1910527AAAF0CF /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,34 +205,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A4BE5DCF6C4D482F0714F436 /* Copy Pods Resources */ = {
+		5C40EB6B7E54CCCC41661C14 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RCAnalytics_Tests/Pods-RCAnalytics_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DFCE606E6A63B37C8C6C68E9 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RCAnalytics_Tests/Pods-RCAnalytics_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -321,7 +321,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F3686298DACD2C419A60475 /* Pods-RCAnalytics_Tests.debug.xcconfig */;
+			baseConfigurationReference = 04E874E5D2E3A004B59606B1 /* Pods-RCAnalytics_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -340,7 +340,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17C7DDF546CBAAB07B6D5732 /* Pods-RCAnalytics_Tests.release.xcconfig */;
+			baseConfigurationReference = A5EF8690C0CD92444AE1352B /* Pods-RCAnalytics_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
