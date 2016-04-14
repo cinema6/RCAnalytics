@@ -30,12 +30,14 @@ class PixelManagerSpec: QuickSpec {
             var pixelManager: PixelManager!;
             var pixelURI: String!;
             var URIRequestClass: URIRequest.Type!;
+            var bundle: NSBundle!;
             
             beforeEach {
                 pixelURI = "https://audit-staging.reelcontent.com/pixel.gif";
                 URIRequestClass = MockURIRequest.self;
-                
-                pixelManager = PixelManager(pixelURI: pixelURI, URIRequestClass: URIRequestClass);
+                bundle = NSBundle(forClass: PixelManagerSpec.self);
+
+                pixelManager = PixelManager(pixelURI: pixelURI, URIRequestClass: URIRequestClass, bundle: bundle);
             }
             
             it("should exist") {
@@ -77,10 +79,11 @@ class PixelManagerSpec: QuickSpec {
                             hostname: "audit-staging.reelcontent.com",
                             pathname: "/pixel.gif",
                             query: [
-                                "type": type,
-                                "deviceId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString,
+                                "appId": bundle.infoDictionary?["CFBundleIdentifier"] as! String,
+                                "a": "test",
                                 "this": "is",
-                                "a": "test"
+                                "deviceId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString,
+                                "type": type
                             ]
                         ).href));
                     }
@@ -104,6 +107,7 @@ class PixelManagerSpec: QuickSpec {
                 it("should create a PixelManager") {
                     expect(result.pixelURI).to(equal(pixelURI));
                     expect(result.URIRequestClass).to(beIdenticalTo(URIRequest.self));
+                    expect(result.bundle).to(beIdenticalTo(NSBundle.mainBundle()));
                 }
             }
         }

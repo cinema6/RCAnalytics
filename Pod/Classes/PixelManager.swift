@@ -25,11 +25,13 @@ private func extend(args:Dictionary<String, String>...) -> Dictionary<String, St
 internal class PixelManager {
     let pixelURI: String;
     let URIRequestClass: URIRequest.Type;
+    let bundle: NSBundle;
     private let baseURI: URI;
     
-    init(pixelURI _pixelURI: String, URIRequestClass _URIRequestClass: URIRequest.Type) {
+    init(pixelURI _pixelURI: String, URIRequestClass _URIRequestClass: URIRequest.Type, bundle _bundle: NSBundle) {
         pixelURI = _pixelURI;
         URIRequestClass = _URIRequestClass;
+        bundle = _bundle;
         
         baseURI = URI(href: pixelURI);
     }
@@ -41,7 +43,8 @@ internal class PixelManager {
             pathname: baseURI.pathname,
             query: extend([
                 "type": type,
-                "deviceId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
+                "deviceId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString,
+                "appId": (bundle.infoDictionary?["CFBundleIdentifier"] as? String) ?? ""
             ], params)
         ));
         
@@ -49,6 +52,6 @@ internal class PixelManager {
     }
     
     class func create(pixelURI: String) -> PixelManager {
-        return PixelManager(pixelURI: pixelURI, URIRequestClass: URIRequest.self);
+        return PixelManager(pixelURI: pixelURI, URIRequestClass: URIRequest.self, bundle: NSBundle.mainBundle());
     }
 }

@@ -19,7 +19,7 @@ private class MockPixelManager: PixelManager {
     }
     
     override class func create(pixelURI: String) -> MockPixelManager {
-        pixelManager = MockPixelManager(pixelURI: pixelURI, URIRequestClass: URIRequest.self);
+        pixelManager = MockPixelManager(pixelURI: pixelURI, URIRequestClass: URIRequest.self, bundle: NSBundle());
         
         return pixelManager;
     }
