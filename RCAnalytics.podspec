@@ -16,11 +16,10 @@ Pod::Spec.new do |s|
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
-  s.description      = "App analytics tracking for Reelcontent."
 
   s.homepage         = "https://github.com/cinema6/RCAnalytics"
   s.license          = 'MIT'
-  s.author           = { "Joshua Minzner" => "josh@minzner.org" }
+  s.author           = { "Reelcontent, Inc." => "info@reelcontent.com" }
   s.source           = { :git => "https://github.com/cinema6/RCAnalytics.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '8.0'

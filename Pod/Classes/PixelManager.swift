@@ -10,8 +10,9 @@ import Foundation;
 import AdSupport;
 
 private func extend(args:Dictionary<String, String>...) -> Dictionary<String, String> {
-    return args.reduce([String: String]()) { (var result, let entry) in
-        return entry.reduce(result) { (var result, let entry) in
+    return args.reduce([String: String]()) { result, dict in
+        return dict.reduce(result) { _result, entry in
+            var result = _result;
             let (key, value) = entry;
             
             result[key] = value;
@@ -33,7 +34,7 @@ internal class PixelManager {
         baseURI = URI(href: pixelURI);
     }
     
-    public func fire(type: String, params: [String: String]) {
+    func fire(type: String, params: [String: String]) {
         let request = URIRequestClass.create(URI(
             protoc: baseURI.protoc,
             hostname: baseURI.hostname,
@@ -47,7 +48,7 @@ internal class PixelManager {
         request.send();
     }
     
-    public class func create(pixelURI: String) -> PixelManager {
+    class func create(pixelURI: String) -> PixelManager {
         return PixelManager(pixelURI: pixelURI, URIRequestClass: URIRequest.self);
     }
 }

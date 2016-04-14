@@ -8,7 +8,7 @@
 
 import Foundation;
 
-let RESERVED_CHARS: Set<Character> = [
+private let RESERVED_CHARS: Set<Character> = [
     "!", "*", "'", "(", ")", ";", ":", "@", "&", "=", "+", "$", ",", "/", "?", "#", "[", "]",
     "\n", " ", "\"", "%", "<", ">", "\\", "^", "`", "{", "|", "}"
 ];
@@ -21,7 +21,7 @@ private func percentEncode(char: Character) -> String {
 }
 
 private func percentDecode(value: String) -> Character {
-    let hex = value.substringWithRange(Range(start: value.startIndex.advancedBy(1), end: value.endIndex));
+    let hex = value.substringWithRange(value.characters.startIndex.advancedBy(1)..<value.characters.endIndex);
     
     return Character(UnicodeScalar(Int(hex, radix: 16)!));
 }
@@ -46,7 +46,8 @@ private func trim(string: NSString, first _first: Int = 0, last: Int = 0) -> Str
 private func parseSearch(search: String) -> Dictionary<String, String> {
     if (search == "") { return [String: String](); }
     
-    return trim(search, first: 1).componentsSeparatedByString("&").reduce([String: String]()) { (var result, let pair) in
+    return trim(search, first: 1).componentsSeparatedByString("&").reduce([String: String]()) { _result, pair in
+        var result = _result;
         let parts = pair.componentsSeparatedByString("=");
         
         result[parts.first!] = URI.decode(parts.last!);
@@ -82,7 +83,7 @@ internal class URI: Equatable {
     let protoc, host, auth, hostname, port, pathname, search, path, hash: String?;
     let query: [String: String];
     
-    public init(
+    init(
         href _href: String?
     ) {
         href = _href!;
@@ -128,7 +129,7 @@ internal class URI: Equatable {
         query = parseSearch(search!);
     }
     
-    public init(
+    init(
         protoc _protoc: String? = nil,
         hostname _hostname: String? = nil,
         auth _auth: String? = nil,
@@ -171,11 +172,11 @@ internal class URI: Equatable {
         href = createHref(protoc: protoc, auth: auth, host: host, path: path, hash: hash);
     }
     
-    public func toNSURL() -> NSURL {
+    func toNSURL() -> NSURL {
         return NSURL(string: href)!;
     }
     
-    public static func encode(part: String) -> String {
+    static func encode(part: String) -> String {
         var result: String = "";
         
         for char in part.characters {
@@ -189,7 +190,7 @@ internal class URI: Equatable {
         return result;
     }
     
-    public static func decode(string: String) -> String {
+    static func decode(string: String) -> String {
         var encoded: String = "";
         var result: String = "";
         
