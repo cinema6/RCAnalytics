@@ -10,7 +10,7 @@ import Foundation;
 
 private let API_ROOT = "https://audit.reelcontent.com/";
 
-public class RCAnalytics {
+public class RCAnalytics: NSObject {
     public let apiRoot: String;
     public let product: String;
     private let pixels: PixelManager;
@@ -44,8 +44,12 @@ public class RCAnalytics {
     
     public static func create(
         product: String,
-        apiRoot: String = API_ROOT
+        apiRoot: String
     ) -> RCAnalytics {
         return RCAnalytics(apiRoot: apiRoot, product: product, PixelManagerClass: PixelManager.self);
+    }
+    
+    public static func create(product: String) -> RCAnalytics {
+        return create(product, apiRoot: API_ROOT);
     }
 }
