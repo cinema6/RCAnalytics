@@ -1,28 +1,86 @@
 # RCAnalytics
 
-[![CI Status](http://img.shields.io/travis/Joshua Minzner/RCAnalytics.svg?style=flat)](https://travis-ci.org/Joshua Minzner/RCAnalytics)
 [![Version](https://img.shields.io/cocoapods/v/RCAnalytics.svg?style=flat)](http://cocoapods.org/pods/RCAnalytics)
 [![License](https://img.shields.io/cocoapods/l/RCAnalytics.svg?style=flat)](http://cocoapods.org/pods/RCAnalytics)
 [![Platform](https://img.shields.io/cocoapods/p/RCAnalytics.svg?style=flat)](http://cocoapods.org/pods/RCAnalytics)
 
-## Usage
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
 ## Installation
 
-RCAnalytics is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+### Set Up Your App for Use With Cocoapods
+1. Install [CocoaPods](http://cocoapods.org)
 
-```ruby
-pod "RCAnalytics"
-```
+    ```bash
+    $> sudo gem install cocoapods
+    ```
+2. Create a `Podfile` in your app product directory:
+
+    ```ruby
+    target 'MyAppTargetHere' do
+        use_frameworks!
+    end
+    ```
+
+### Install RCAnalytics with CocoaPods
+1. Add RCAnalytics as a dependency
+
+    ```ruby
+    target 'MyAppTargetHere' do
+        use_frameworks!
+        
+        pod "RCAnalytics", "~> 0.1.0"
+    end
+    ```
+2. Install Dependencies
+
+    ```bash
+    $> pod install
+    ```
+
+## Usage
+1. Get your *product ID* from the Reelcontent Showcase platform
+2. Initialize `RCAnalytics` when your app launches:
+
+    **In Swift:**
+    
+    ```swift
+    import UIKit;
+    import RCAnalytics;
+    
+    @UIApplicationMain
+    class AppDelegate: UIResponder, UIApplicationDelegate {
+        // called after your app launches
+        func application(
+            application: UIApplication,
+            didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?
+        ) -> Bool {
+            RCAnalytics.create("your-product-id-here").launch(); // Launch RCAnalytics
+            return true;
+        }
+    }
+    ```
+    
+    **In Objective-C:**
+    
+    ```objective-c
+    #import "AppDelegate.h"
+    #import <Foundation/Foundation.h>
+    @import RCAnalytics;
+    
+    @implementation AppDelegate
+        // called after your app launches
+        -(BOOL)
+            application:(UIApplication *)application
+            didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+        {
+            [[RCAnalytics create:@"your-product-id-here"] launch]; // Launch RCAnalytics
+            return YES;
+        }
+    @end
+    ```
 
 ## Author
 
-Reelcontent, Inc., josh@reelcontent.com
+Reelcontent, Inc., [info@reelcontent.com](mailto:info@reelcontent.com?subject=RCAnalytics)
 
 ## License
 
