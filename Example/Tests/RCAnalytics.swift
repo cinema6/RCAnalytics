@@ -25,6 +25,24 @@ private class MockPixelManager: PixelManager {
     }
 }
 
+private class MockUserDefaults: NSUserDefaults {
+    var synchronized = false;
+    var keys = [String: Bool]();
+
+    override func boolForKey(defaultName: String) -> Bool {
+        return keys[defaultName] ?? false;
+    }
+
+    override func setBool(value: Bool, forKey defaultName: String) {
+        keys[defaultName] = value;
+    }
+
+    override func synchronize() -> Bool {
+        synchronized = true;
+        return true;
+    }
+}
+
 private var pixelManager: MockPixelManager!;
 
 class RCAnalyticsSpec: QuickSpec {
@@ -33,13 +51,15 @@ class RCAnalyticsSpec: QuickSpec {
             var rc: RCAnalytics!;
             var apiRoot: String!, product: String!;
             var PixelManagerClass: PixelManager.Type!;
+            var userDefaults: MockUserDefaults!;
             
             beforeEach {
                 apiRoot = "https://audit-staging.reelcontent.com/";
                 product = "cam-0GK0Wx03p17-qs1f";
                 PixelManagerClass = MockPixelManager.self;
+                userDefaults = MockUserDefaults();
                 
-                rc = RCAnalytics(apiRoot: apiRoot, product: product, PixelManagerClass: PixelManagerClass);
+                rc = RCAnalytics(apiRoot: apiRoot, product: product, PixelManagerClass: PixelManagerClass, userDefaults: userDefaults);
             }
             
             it("should exist") {
@@ -65,7 +85,7 @@ class RCAnalyticsSpec: QuickSpec {
                     
                     describe("if none is provided") {
                         beforeEach {
-                            rc = RCAnalytics(product: product, PixelManagerClass: PixelManagerClass);
+                            rc = RCAnalytics(product: product, PixelManagerClass: PixelManagerClass, userDefaults: userDefaults);
                         }
                         
                         it("should be https://audit.reelcontent.com/") {
@@ -99,7 +119,7 @@ class RCAnalyticsSpec: QuickSpec {
                 
                 describe("launch()") {
                     var rc: MockRCAnalytics!;
-                    
+
                     class MockRCAnalytics: RCAnalytics {
                         var _trackArgs = [Array<Any>]();
                         
@@ -107,18 +127,50 @@ class RCAnalyticsSpec: QuickSpec {
                             _trackArgs.append([event]);
                         }
                     }
-                    
+
                     beforeEach {
-                        rc = MockRCAnalytics(product: product, PixelManagerClass: MockPixelManager.self);
+                        rc = MockRCAnalytics(product: product, PixelManagerClass: MockPixelManager.self, userDefaults: userDefaults);
                         
                         rc.launch();
                     }
-                    
+
+                    it("should track an appInstall event") {
+                        let event = rc._trackArgs.first?.last as! String;
+
+                        expect(rc._trackArgs.count).to(equal(2));
+                        expect(event).to(equal("appInstall"));
+                    }
+
                     it("should track an appLaunch event") {
                         let event = rc._trackArgs.last?.last as! String;
-                        
-                        expect(rc._trackArgs.count).to(equal(1));
+
+                        expect(rc._trackArgs.count).to(equal(2));
                         expect(event).to(equal("appLaunch"));
+                    }
+
+                    it("should set 'RCAnalytics::HasLaunched' to true in the user defaults") {
+                        expect(userDefaults.keys["RCAnalytics::HasLaunched"]).to(equal(true));
+                    }
+
+                    it("should synchronize the defaults") {
+                        expect(userDefaults.synchronized).to(equal(true));
+                    }
+
+                    describe("if the app has been launched before") {
+                        beforeEach {
+                            userDefaults.keys["RCAnalytics::HasLaunched"] = true;
+                            rc._trackArgs.removeAll();
+                            userDefaults.synchronized = false;
+
+                            rc.launch();
+                        }
+
+                        it("should only track 'appLaunch'") {
+                            let event = rc._trackArgs.last?.last as! String;
+
+                            expect(rc._trackArgs.count).to(equal(1));
+                            expect(event).to(equal("appLaunch"));
+                        }
                     }
                 }
             }
@@ -140,7 +192,7 @@ class RCAnalyticsSpec: QuickSpec {
                 }
                 
                 it("should make sure apiRoot is optional") {
-                    expect(RCAnalytics.create(product).apiRoot).to(equal(RCAnalytics(product: product, PixelManagerClass: PixelManager.self).apiRoot));
+                    expect(RCAnalytics.create(product).apiRoot).to(equal(RCAnalytics(product: product, PixelManagerClass: PixelManager.self, userDefaults: NSUserDefaults.standardUserDefaults()).apiRoot));
                 }
             }
         }
