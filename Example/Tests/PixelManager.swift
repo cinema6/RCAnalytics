@@ -79,11 +79,11 @@ class PixelManagerSpec: QuickSpec {
                             hostname: "audit-staging.reelcontent.com",
                             pathname: "/pixel.gif",
                             query: [
-                                "appId": bundle.infoDictionary?["CFBundleIdentifier"] as! String,
+                                "hostApp": bundle.infoDictionary?["CFBundleIdentifier"] as! String,
                                 "a": "test",
+                                "extSessionId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString,
                                 "this": "is",
-                                "deviceId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString,
-                                "type": type
+                                "event": type
                             ]
                         ).href));
                     }
