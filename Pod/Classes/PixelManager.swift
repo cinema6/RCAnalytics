@@ -44,7 +44,8 @@ internal class PixelManager {
             query: extend([
                 "event": type,
                 "extSessionId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString,
-                "hostApp": (bundle.infoDictionary?["CFBundleIdentifier"] as? String) ?? ""
+                "hostApp": (bundle.infoDictionary?["CFBundleIdentifier"] as? String) ?? "",
+                "container": "rcanalytics"
             ], params)
         ));
         

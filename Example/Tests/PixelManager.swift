@@ -80,10 +80,11 @@ class PixelManagerSpec: QuickSpec {
                             pathname: "/pixel.gif",
                             query: [
                                 "hostApp": bundle.infoDictionary?["CFBundleIdentifier"] as! String,
-                                "a": "test",
+                                "container": "rcanalytics",
                                 "extSessionId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString,
-                                "this": "is",
-                                "event": type
+                                "a": "test",
+                                "event": type,
+                                "this": "is"
                             ]
                         ).href));
                     }
