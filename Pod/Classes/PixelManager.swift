@@ -42,9 +42,10 @@ internal class PixelManager {
             hostname: baseURI.hostname,
             pathname: baseURI.pathname,
             query: extend([
-                "type": type,
-                "deviceId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString,
-                "appId": (bundle.infoDictionary?["CFBundleIdentifier"] as? String) ?? ""
+                "event": type,
+                "extSessionId": ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString,
+                "hostApp": (bundle.infoDictionary?["CFBundleIdentifier"] as? String) ?? "",
+                "container": "rcanalytics"
             ], params)
         ));
         
