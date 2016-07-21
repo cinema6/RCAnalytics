@@ -3,6 +3,7 @@
 [![Version](https://img.shields.io/cocoapods/v/RCAnalytics.svg?style=flat)](http://cocoapods.org/pods/RCAnalytics)
 [![License](https://img.shields.io/cocoapods/l/RCAnalytics.svg?style=flat)](http://cocoapods.org/pods/RCAnalytics)
 [![Platform](https://img.shields.io/cocoapods/p/RCAnalytics.svg?style=flat)](http://cocoapods.org/pods/RCAnalytics)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## Installation
 
