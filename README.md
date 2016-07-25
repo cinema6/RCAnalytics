@@ -3,10 +3,13 @@
 [![Version](https://img.shields.io/cocoapods/v/RCAnalytics.svg?style=flat)](http://cocoapods.org/pods/RCAnalytics)
 [![License](https://img.shields.io/cocoapods/l/RCAnalytics.svg?style=flat)](http://cocoapods.org/pods/RCAnalytics)
 [![Platform](https://img.shields.io/cocoapods/p/RCAnalytics.svg?style=flat)](http://cocoapods.org/pods/RCAnalytics)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## Installation
 
-### Set Up Your App for Use With Cocoapods
+### Either With Cocoapods
+
+#### Set Up Your App for Use With Cocoapods
 1. Install [CocoaPods](http://cocoapods.org)
 
     ```bash
@@ -20,14 +23,14 @@
     end
     ```
 
-### Install RCAnalytics with CocoaPods
+#### Install RCAnalytics
 1. Add RCAnalytics as a dependency
 
     ```ruby
     target 'MyAppTargetHere' do
         use_frameworks!
         
-        pod "RCAnalytics", "~> 0.1.0"
+        pod "RCAnalytics", "~> 0.2.0"
     end
     ```
 2. Install Dependencies
@@ -35,6 +38,22 @@
     ```bash
     $> pod install
     ```
+
+### OR With Carthage
+
+1. Add RCAnalytics to Your Cartfile:
+
+    ```odgl
+    github "cinema6/RCAnalytics" ~> 0.2.0
+    ```
+
+2. Download and Build RCAnalytics:
+
+    ```bash
+    $> carthage update RCAnalytics
+    ```
+
+3. Manually Add the Generated Framework (`Carthage/Build/iOS/RCAnalytics.framework`) to your target via `General => Embedded Binaries`.
 
 ## Usage
 1. Get your *product ID* from the Reelcontent Showcase platform
