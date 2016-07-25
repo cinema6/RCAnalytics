@@ -7,7 +7,9 @@
 
 ## Installation
 
-### Set Up Your App for Use With Cocoapods
+### Either With Cocoapods
+
+#### Set Up Your App for Use With Cocoapods
 1. Install [CocoaPods](http://cocoapods.org)
 
     ```bash
@@ -21,7 +23,7 @@
     end
     ```
 
-### Install RCAnalytics with CocoaPods
+#### Install RCAnalytics
 1. Add RCAnalytics as a dependency
 
     ```ruby
@@ -36,6 +38,22 @@
     ```bash
     $> pod install
     ```
+
+### OR With Carthage
+
+1. Add RCAnalytics to Your Cartfile:
+
+    ```odgl
+    github "cinema6/RCAnalytics" ~> 0.2.0
+    ```
+
+2. Download and Build RCAnalytics:
+
+    ```bash
+    $> carthage update RCAnalytics
+    ```
+
+3. Manually Add the Generated Framework (`Carthage/Build/iOS/RCAnalytics.framework`) to your target via `General => Embedded Binaries`.
 
 ## Usage
 1. Get your *product ID* from the Reelcontent Showcase platform
